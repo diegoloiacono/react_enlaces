@@ -7,7 +7,7 @@ const EntriesPage = () => {
   useEffect(() => {
     const fetchEntries = async () => {
       try {
-        const res = await fetch("http://localhost:3000/entries");
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/entries`);
         const body = await res.json();
 
         if (res.ok) {
