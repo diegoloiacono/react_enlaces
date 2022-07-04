@@ -1,35 +1,42 @@
 import { useState } from "react";
-import ErrorMessage from "../ErrorMessage";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useUserTokenContext } from "../../contexts/UserTokenContext";
+import Button from "../Button";
+import ErrorMessage from "../ErrorMessage";
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { setToken } = useUserTokenContext();
+  const navigate = useNavigate();
 
-  const registerUser = async (e) => {
+  const loginUser = async (e) => {
     try {
       e.preventDefault();
 
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, name, password }),
+        body: JSON.stringify({ email, password }),
       });
 
+      const body = await res.json();
+
       if (!res.ok) {
-        const body = await res.json();
         throw new Error(body.message);
       }
 
+      setToken(body.data.token);
+
       setError("");
-      setName("");
       setEmail("");
       setPassword("");
-      toast.success("Registered succesfully. Check your email for activation!");
+      toast.success("Logged succesfully!");
+      navigate("/");
     } catch (error) {
       setError(error.message);
     }
@@ -37,7 +44,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <form onSubmit={registerUser}>
+      <form onSubmit={loginUser}>
         <label htmlFor="email">Email:</label>
         <input
           id="email"
@@ -45,16 +52,6 @@ const RegisterForm = () => {
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
-          }}
-        />
-
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
-          type="name"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
           }}
         />
 
@@ -68,7 +65,7 @@ const RegisterForm = () => {
           }}
         />
 
-        <button>Sign up</button>
+        <Button className="red_button">Login</Button>
       </form>
 
       {error && <ErrorMessage error={error} />}
@@ -76,4 +73,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;
