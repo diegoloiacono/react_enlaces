@@ -1,9 +1,11 @@
 import { useState } from "react";
+import ErrorMessage from "../ErrorMessage";
 
 const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const registerUser = async (e) => {
     try {
@@ -21,45 +23,58 @@ const RegisterForm = () => {
         const body = await res.json();
         throw new Error(body.message);
       }
+
+      setError("");
+      setName("");
+      setEmail("");
+      setPassword("");
+
+      //
+      //IF EVERYTHING OK MUST REDIRECT TO ENTRIESPAGE - LOGGED IN//
+      //
     } catch (error) {
-      alert(error.message);
+      setError(error.message);
     }
   };
 
   return (
-    <form onSubmit={registerUser}>
-      <label htmlFor="email">Email:</label>
-      <input
-        id="email"
-        type="email"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
+    <>
+      <form onSubmit={registerUser}>
+        <label htmlFor="email">Email:</label>
+        <input
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
 
-      <label htmlFor="name">Name:</label>
-      <input
-        id="name"
-        type="name"
-        value={name}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-      />
+        <label htmlFor="name">Name:</label>
+        <input
+          id="name"
+          type="name"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
 
-      <label htmlFor="password">Password:</label>
-      <input
-        id="password"
-        type="password"
-        value={password}
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
+        <label htmlFor="password">Password:</label>
+        <input
+          id="password"
+          type="password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
 
-      <button>Sign up</button>
-    </form>
+        <button>Sign up</button>
+      </form>
+
+      {error && <ErrorMessage error={error} />}
+    </>
   );
 };
 
