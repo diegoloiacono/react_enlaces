@@ -18,7 +18,7 @@ const CreateEntryForm = () => {
     try {
       e.preventDefault();
 
-      const res = await fetch("http://localhost:3000/entries", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/entries`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
