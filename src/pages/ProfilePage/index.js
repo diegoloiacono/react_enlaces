@@ -1,19 +1,24 @@
 import { useUserTokenContext } from "../../contexts/UserTokenContext";
 import { Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import EntriesList from "../../components/EntriesList";
 
 const ProfilePage = () => {
   const { token } = useUserTokenContext();
-  const [profile, setProfile] = useState("");
+  const [userEntries, setUserEntries] = useState([]);
+  const [username, setUsername] = useState([]);
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}/profile`);
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/profile`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         const body = await res.json();
 
         if (res.ok) {
-          setProfile(body.data);
+          setUserEntries(body.data.entries);
+          setUsername(body.data.name);
         } else {
           throw new Error(body.message);
         }
@@ -32,7 +37,8 @@ const ProfilePage = () => {
   return (
     <section>
       <h2>Profile Page</h2>
-      <p>{profile}</p>
+      <h3>{username}</h3>
+      <EntriesList entries={userEntries} />
     </section>
   );
 };
