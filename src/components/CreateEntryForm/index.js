@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useUserTokenContext } from "../../contexts/UserTokenContext";
 import { toast } from "react-toastify";
-// USENAVIGATE!! //
 import { useNavigate, Navigate } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage";
 import Button from "../Button";
@@ -12,7 +11,7 @@ const CreateEntryForm = () => {
   const [url, setUrl] = useState("");
   const [error, setError] = useState("");
   const { token } = useUserTokenContext();
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const createEntry = async (e) => {
     try {
@@ -33,12 +32,8 @@ const CreateEntryForm = () => {
         throw new Error(postEntryBody.message);
       }
 
-      //   const {
-      //     data: { id },
-      //   } = postEntryBody;
-
       toast.success("URL uploaded succesfully");
-      //   navigate(`/entry/${id}`);
+      navigate(`/profile`);
     } catch (error) {
       setError(error.message);
     }
