@@ -1,18 +1,16 @@
 import List from "../List";
 import Entry from "../Entry";
 import EntryInfo from "../EntryInfo";
-import { Link } from "react-router-dom";
+import Button from "../Button";
 
-const EntriesList = ({ entries }) => {
+const EntriesList = ({ entries, canEdit }) => {
   return (
     <List
       data={entries}
       render={(entry) => (
         <li key={entry.id}>
-          {/* <Entry entry={entry} /> */}
-          <Link to={`/entry/${entry.id}`}>
-            <EntryInfo entry={entry} />
-          </Link>
+          <EntryInfo entry={entry} />
+          {canEdit && <Button>Edit</Button>}
         </li>
       )}
     />
