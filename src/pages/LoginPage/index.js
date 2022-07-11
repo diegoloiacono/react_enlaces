@@ -1,9 +1,10 @@
 import LoginForm from "../../components/LoginForm";
+import "./style.css";
 
 const LoginPage = () => {
   return (
-    <section>
-      <h2>Login</h2>
+    <section className="login-container">
+      <h2>Log In</h2>
 
       <LoginForm />
     </section>

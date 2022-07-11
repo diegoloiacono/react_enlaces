@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { useNavigate, Navigate } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage";
 import Button from "../Button";
+import "./style.css";
 
 const CreateEntryForm = () => {
   const [title, setTitle] = useState({ title });

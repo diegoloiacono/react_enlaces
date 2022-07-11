@@ -12,14 +12,28 @@ ul {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: linear-gradient(
+    45deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(60, 9, 121, 1) 35%,
+    rgba(97, 9, 121, 1) 100%
+  );
 }
 
 main {
   flex-grow: 1;
-  width: 60%;
   margin: 2rem auto;
+  color: white;
 }
 
 main > section > h2 {
   margin-bottom: 2rem;
+}
+
+button {
+  margin-right: 5px;
+  padding: 3px;
+  border-style: none;
+  background-color: greenyellow;
+  border-radius: 2px;
 }

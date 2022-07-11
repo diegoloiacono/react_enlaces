@@ -10,7 +10,12 @@ const EntriesList = ({ entries, canEdit }) => {
       render={(entry) => (
         <li key={entry.id}>
           <EntryInfo entry={entry} />
-          {canEdit && <Button>Edit</Button>}
+          {canEdit && (
+            <>
+              <Button>Edit</Button>
+              <Button>Delete</Button>
+            </>
+          )}
         </li>
       )}
     />
