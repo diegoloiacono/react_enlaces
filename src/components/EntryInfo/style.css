@@ -1,0 +1,31 @@
+h2 {
+  font-size: 18px;
+  padding-bottom: 1rem;
+}
+
+p {
+  padding-bottom: 0.5rem;
+}
+
+.url-like {
+  display: flex;
+  justify-content: right;
+}
+
+.entry_card {
+  color: black;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+  background: #fff;
+  min-width: auto;
+  max-width: 800px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+}
+
+.like-button {
+  border: none;
+  padding: 0 5px 0 5px;
+  background-color: white;
+}

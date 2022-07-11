@@ -54,7 +54,6 @@ const EntriesPage = () => {
 
   return (
     <section>
-      <h2>Enlaces</h2>
       {token && <CreateEntryPage />}
       <form onSubmit={getEntriesByDate}>
         <label htmlFor="date">Filtra por fecha: </label>

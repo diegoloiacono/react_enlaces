@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useUserTokenContext } from "../../contexts/UserTokenContext";
 import { toast } from "react-toastify";
 import useCheckLike from "../../hooks/useCheckLike";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import "./style.css";
 
 const EntryInfo = ({ entry }) => {
   const { id, title, url, description, votes: initialVotes } = entry;
@@ -42,20 +44,25 @@ const EntryInfo = ({ entry }) => {
   };
 
   return (
-    <section className="entry_info">
+    <section className="entry_card">
       <header>
         <h2>{title}</h2>
       </header>
 
-      <p>{description}</p>
+      <p>Description: {description}</p>
+
       <a href={url} target="_blank" rel="noreferrer">
         {url}
       </a>
+      <div className="url-like">
+        {token && (
+          <Button className="like-button" onClick={voteEntry}>
+            {didUserLikeEntry ? <FaHeart /> : <FaRegHeart />}
+          </Button>
+        )}
 
-      {token && (
-        <Button onClick={voteEntry}>{didUserLikeEntry ? "❤" : "🤍"}</Button>
-      )}
-      <span>{votes}</span>
+        <span>{votes}</span>
+      </div>
     </section>
   );
 };

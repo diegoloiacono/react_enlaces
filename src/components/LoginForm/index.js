@@ -43,7 +43,7 @@ const LoginForm = () => {
   };
 
   return (
-    <>
+    <section>
       <form onSubmit={loginUser}>
         <label htmlFor="email">Email:</label>
         <input
@@ -69,7 +69,7 @@ const LoginForm = () => {
       </form>
 
       {error && <ErrorMessage error={error} />}
-    </>
+    </section>
   );
 };
 

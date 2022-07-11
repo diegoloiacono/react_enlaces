@@ -1,0 +1,10 @@
+.register-container {
+  text-align: center;
+  color: black;
+  padding: 1.5rem;
+  background: #fff;
+  min-width: auto;
+  max-width: 800px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+}

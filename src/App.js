@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import CreateEntryPage from "./pages/CreateEntryPage";
 import ProfilePage from "./pages/ProfilePage";
+import EditEntry from "./pages/EditEntry";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/entries" element={<CreateEntryPage />} />
+          <Route path="/editentry" element={<EditEntry />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
