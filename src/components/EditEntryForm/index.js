@@ -4,13 +4,12 @@ import { toast } from "react-toastify";
 import { useNavigate, Navigate, useParams } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage";
 import Button from "../Button";
-import EntryInfo from "../EntryInfo";
 
-const EditEntryForm = () => {
+const EditEntryForm = ({ initialEntry }) => {
   const { id } = useParams();
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [url, setUrl] = useState("");
+  const [title, setTitle] = useState(initialEntry.title);
+  const [description, setDescription] = useState(initialEntry.description);
+  const [url, setUrl] = useState(initialEntry.url);
   const [error, setError] = useState("");
   const { token } = useUserTokenContext();
   const navigate = useNavigate();
@@ -55,7 +54,6 @@ const EditEntryForm = () => {
         <input
           id="title"
           value={title}
-          placeholder={"Como hago esto?"}
           onChange={(e) => {
             setTitle(e.target.value);
           }}

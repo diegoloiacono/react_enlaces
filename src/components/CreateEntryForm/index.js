@@ -47,33 +47,38 @@ const CreateEntryForm = () => {
   return (
     <>
       <form className="create-entry-form" onSubmit={createEntry}>
-        <label htmlFor="title">Title:</label>
-        <input
-          id="title"
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
+        <div>
+          <label htmlFor="title">Title:</label>
+          <input
+            id="title"
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          />
+        </div>
 
-        <label htmlFor="description">Description:</label>
-        <input
-          id="description"
-          value={description}
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-        />
+        <div>
+          <label htmlFor="description">Description:</label>
+          <input
+            id="description"
+            value={description}
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+          />
+        </div>
 
-        <label htmlFor="url">URL:</label>
-        <input
-          id="url"
-          value={url}
-          onChange={(e) => {
-            setUrl(e.target.value);
-          }}
-        />
-
+        <div>
+          <label htmlFor="url">URL:</label>
+          <input
+            id="url"
+            value={url}
+            onChange={(e) => {
+              setUrl(e.target.value);
+            }}
+          />
+        </div>
         <Button>Send!</Button>
       </form>
 
