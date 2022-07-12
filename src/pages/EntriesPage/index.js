@@ -36,13 +36,11 @@ const EntriesPage = () => {
     e.preventDefault();
     try {
       setEntries([]);
-      console.log(date);
 
       const res = await fetch(
         `${process.env.REACT_APP_API_URL}/entries/${date}`
       );
       const body = await res.json();
-      console.log(res);
 
       if (res.ok) {
         setEntries(body.data);
