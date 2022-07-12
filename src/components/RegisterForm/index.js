@@ -68,7 +68,7 @@ const RegisterForm = () => {
           }}
         />
 
-        <button>Sign up</button>
+        <button className="signup-button">Sign up</button>
       </form>
 
       {error && <ErrorMessage error={error} />}

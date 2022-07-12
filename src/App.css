@@ -31,9 +31,13 @@ main > section > h2 {
 }
 
 button {
-  margin-right: 5px;
-  padding: 3px;
+  margin: 0px 5px 0px 5px;
+  padding: 5px;
   border-style: none;
   background-color: greenyellow;
   border-radius: 2px;
+}
+
+h1 {
+  font-size: 50px;
 }

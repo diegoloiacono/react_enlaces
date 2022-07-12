@@ -1,0 +1,19 @@
+.edit-button {
+  background-color: greenyellow;
+  border-radius: 0px 0px 0px 5px;
+  width: 250px;
+  padding: 5px 0px;
+  margin: 0px;
+}
+
+.delete-button {
+  background-color: rgb(255, 74, 46);
+  border-radius: 0px 0px 5px 0px;
+  width: 250px;
+  padding: 5px 0px;
+  margin: 0px;
+}
+
+.profile-buttons {
+  width: 500px;
+}
