@@ -81,7 +81,6 @@ const CreateEntryForm = () => {
         </div>
         <Button>Send!</Button>
       </form>
-
       {error && <ErrorMessage error={error} />}
     </>
   );
