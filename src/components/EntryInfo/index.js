@@ -44,16 +44,18 @@ const EntryInfo = ({ entry }) => {
   };
 
   return (
-    <section className="entry_card">
-      <header>
-        <h2>{title}</h2>
-      </header>
+    <section className="entry-card">
+      <div className="entry-data">
+        <header>
+          <h2>{title}</h2>
+        </header>
 
-      <p>Description: {description}</p>
+        <p>Description: {description}</p>
 
-      <a href={url} target="_blank" rel="noreferrer">
-        {url}
-      </a>
+        <a href={url} target="_blank" rel="noreferrer">
+          {url}
+        </a>
+      </div>
       <div className="url-like">
         {token && (
           <Button className="like-button" onClick={voteEntry}>
@@ -61,7 +63,7 @@ const EntryInfo = ({ entry }) => {
           </Button>
         )}
 
-        <span>{votes}</span>
+        {votes && <span>{votes}</span>}
       </div>
     </section>
   );

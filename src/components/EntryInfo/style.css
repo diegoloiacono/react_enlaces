@@ -9,17 +9,16 @@ p {
 
 .url-like {
   display: flex;
-  justify-content: right;
+  align-items: flex-end;
 }
 
-.entry_card {
+.entry-card {
+  display: flex;
+  justify-content: space-between;
   color: black;
   padding: 1.5rem;
   margin-top: 1rem;
-  justify-content: center;
   background: #fff;
-  min-width: auto;
-  max-width: 800px;
   border-radius: 5px;
   box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
 }

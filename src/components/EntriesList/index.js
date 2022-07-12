@@ -12,7 +12,10 @@ const EntriesList = ({ entries, canEdit }) => {
           <EntryInfo entry={entry} />
           {canEdit && (
             <>
-              <Link to={`/entries/${entry.id}`}>
+              <Link
+                to={`/entries/${entry.id} `}
+                state={{ initialEntry: entry }}
+              >
                 <Button>Edit</Button>
               </Link>
               <Button>Delete</Button>
