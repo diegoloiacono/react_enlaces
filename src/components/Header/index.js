@@ -14,12 +14,17 @@ const Header = () => {
 
       <nav>
         <ul>
-          <li>
-            <Link to="/register">Sign up</Link>
-          </li>
-          <li>
-            <Link to="/login">Log in</Link>
-          </li>
+          <li>{!token && <Link to="/register">Sign up</Link>}</li>
+          {!token && (
+            <li>
+              <Link to="/login">Log in</Link>
+            </li>
+          )}
+          {token && (
+            <li>
+              <Link to="/profile">My URLs</Link>
+            </li>
+          )}
           {token && (
             <li>
               <Button
