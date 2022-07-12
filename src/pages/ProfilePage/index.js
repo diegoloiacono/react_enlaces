@@ -36,8 +36,8 @@ const ProfilePage = () => {
 
   return (
     <section>
-      <h2>Profile Page</h2>
-      <h3>{username}</h3>
+      <h2>My Profile Page</h2>
+      <h3>Username: {username}</h3>
       <EntriesList canEdit={true} entries={userEntries} />
     </section>
   );

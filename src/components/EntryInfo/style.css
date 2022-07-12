@@ -19,8 +19,9 @@ p {
   padding: 1.5rem;
   margin-top: 1rem;
   background: #fff;
-  border-radius: 5px;
+  border-radius: 5px 5px 2px 2px;
   box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+  min-width: 500px;
 }
 
 .like-button {

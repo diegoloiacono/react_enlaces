@@ -8,6 +8,8 @@
 }
 
 .header h2 {
+  font-size: 22px;
+  display: flex;
   padding: 1rem 0 1rem 0;
 }
 
@@ -17,6 +19,7 @@
 }
 
 .header li {
+  display: flex;
   padding: 0.5rem;
 }
 

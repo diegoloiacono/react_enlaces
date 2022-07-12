@@ -2,6 +2,7 @@ import List from "../List";
 import EntryInfo from "../EntryInfo";
 import Button from "../Button";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 const EntriesList = ({ entries, canEdit }) => {
   return (
@@ -12,13 +13,15 @@ const EntriesList = ({ entries, canEdit }) => {
           <EntryInfo entry={entry} />
           {canEdit && (
             <>
-              <Link
-                to={`/entries/${entry.id} `}
-                state={{ initialEntry: entry }}
-              >
-                <Button>Edit</Button>
-              </Link>
-              <Button>Delete</Button>
+              <div className="profile-buttons">
+                <Link
+                  to={`/entries/${entry.id} `}
+                  state={{ initialEntry: entry }}
+                >
+                  <Button className="edit-button">Edit</Button>
+                </Link>
+                <Button className="delete-button">Delete</Button>
+              </div>
             </>
           )}
         </li>
