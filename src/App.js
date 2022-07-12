@@ -22,7 +22,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/entries" element={<CreateEntryPage />} />
-          <Route path="/editentry" element={<EditEntry />} />
+          <Route path="/entries/:id" element={<EditEntry />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

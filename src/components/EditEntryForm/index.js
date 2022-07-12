@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useUserTokenContext } from "../../contexts/UserTokenContext";
 import { toast } from "react-toastify";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate, Navigate, useParams } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage";
 import Button from "../Button";
-import "./style.css";
+import EntryInfo from "../EntryInfo";
 
-const CreateEntryForm = () => {
-  const [title, setTitle] = useState({ title });
-  const [description, setDescription] = useState({ description });
-  const [url, setUrl] = useState({ url });
+const EditEntryForm = () => {
+  const { id } = useParams();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [url, setUrl] = useState("");
   const [error, setError] = useState("");
   const { token } = useUserTokenContext();
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const CreateEntryForm = () => {
         throw new Error(postEntryBody.message);
       }
 
-      toast.success("URL updated succesfully");
+      toast.success("URL uploaded succesfully");
       navigate(`/profile`);
     } catch (error) {
       setError(error.message);
@@ -49,11 +50,12 @@ const CreateEntryForm = () => {
 
   return (
     <>
-      <form onSubmit={createEntry}>
+      <form className="create-entry-form" onSubmit={createEntry}>
         <label htmlFor="title">Title:</label>
         <input
           id="title"
           value={title}
+          placeholder={"Como hago esto?"}
           onChange={(e) => {
             setTitle(e.target.value);
           }}
@@ -85,4 +87,4 @@ const CreateEntryForm = () => {
   );
 };
 
-export default CreateEntryForm;
+export default EditEntryForm;

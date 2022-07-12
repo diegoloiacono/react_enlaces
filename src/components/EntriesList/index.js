@@ -1,7 +1,7 @@
 import List from "../List";
-import Entry from "../Entry";
 import EntryInfo from "../EntryInfo";
 import Button from "../Button";
+import { Link } from "react-router-dom";
 
 const EntriesList = ({ entries, canEdit }) => {
   return (
@@ -12,7 +12,9 @@ const EntriesList = ({ entries, canEdit }) => {
           <EntryInfo entry={entry} />
           {canEdit && (
             <>
-              <Button>Edit</Button>
+              <Link to={`/entries/${entry.id}`}>
+                <Button>Edit</Button>
+              </Link>
               <Button>Delete</Button>
             </>
           )}
