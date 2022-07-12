@@ -1,5 +1,13 @@
+import EditEntryForm from "../../components/EditEntryForm";
+
 const EditEntry = () => {
-  return <h2>Edit Entry</h2>;
+  return (
+    <section>
+      <h2>Upload URL</h2>
+
+      <EditEntryForm />
+    </section>
+  );
 };
 
 export default EditEntry;
