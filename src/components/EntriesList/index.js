@@ -20,7 +20,9 @@ const EntriesList = ({ entries, canEdit }) => {
                 >
                   <Button className="edit-button">Edit</Button>
                 </Link>
-                <Button className="delete-button">Delete</Button>
+                <Link to={`/delete/entries/${entry.id} `}>
+                  <Button className="delete-button">Delete</Button>
+                </Link>
               </div>
             </>
           )}

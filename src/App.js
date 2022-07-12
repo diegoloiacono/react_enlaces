@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage";
 import CreateEntryPage from "./pages/CreateEntryPage";
 import ProfilePage from "./pages/ProfilePage";
 import EditEntry from "./pages/EditEntry";
+import DeleteEntryPage from "./pages/DeleteEntryPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/entries" element={<CreateEntryPage />} />
           <Route path="/entries/:id" element={<EditEntry />} />
+          <Route path="/delete/entries/:id" element={<DeleteEntryPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
